@@ -12,19 +12,22 @@
     <title>Update Item</title>
     <script language="javascript">
         var chaptersNumber=1;
+        var number = -1;
+        function DeleteChapter(id) {
+            var el=document.getElementById(id);
+            el.parentNode.removeChild(el);
+        }
         function AddChapter() {
             div=document.getElementById("chaptersItem");
             button=document.getElementById("add");
             chaptersNumber++;
-            newitem="<input type = \"text\" name=\"chapterName\" size=\"20\" value=\"new chapter\"/><br/>";
-            newitem+="<textarea name=\"text\" rows=\"35\" cols=\"50\"></textarea><br/>";
+            newitem="<div id = \""+number+"\"> <input type = \"text\" name=\"chapterName\" size=\"20\" value=\"new chapter\"/>";
+            newitem+="<input type=\"button\" value=\"Delete Chapter\" onClick=\"DeleteChapter("+number+");\" ID=\"delete\"><br/>";
+            newitem+="<textarea name=\"text\" rows=\"35\" cols=\"50\"></textarea><br/></div>";
             newnode=document.createElement("span");
             newnode.innerHTML=newitem;
             div.insertBefore(newnode,button);
-        }
-        function DeleteChapter(id) {
-            var el=document.getElementById(id);
-            el.parentNode.removeChild(el);
+            number--;
         }
     </script>
 </head>
