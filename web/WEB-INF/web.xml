@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>GetItems</servlet-name>
+        <servlet-class>app.servlet.GetItemsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetItems</servlet-name>
+        <url-pattern>/getItems</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteItem</servlet-name>
+        <servlet-class>app.servlet.DeleteItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteItem</servlet-name>
+        <url-pattern>/deleteItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddItem</servlet-name>
+        <servlet-class>app.servlet.AddItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddItem</servlet-name>
+        <url-pattern>/addItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateItem</servlet-name>
+        <servlet-class>app.servlet.UpdateItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateItem</servlet-name>
+        <url-pattern>/updateItem</url-pattern>
+    </servlet-mapping>
+
+</web-app>
