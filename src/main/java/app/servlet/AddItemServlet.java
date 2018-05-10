@@ -27,10 +27,12 @@ public class AddItemServlet extends HttpServlet {
         long yearOfPublication = Long.parseLong(req.getParameter("yearOfPublication"));
         String firstName = req.getParameter("firstName");
         String secondName = req.getParameter("secondName");
-        String chapterName = req.getParameter("chapterName");
-        String text = req.getParameter("text");
         List<Chapter> chapters = new ArrayList<>();
-        chapters.add(new Chapter(chapterName, text));
+        String[] chapterNames = req.getParameterValues("chapterName");
+        String[] texts = req.getParameterValues("text");
+        for(int i = 0; i<chapterNames.length; i++){
+            chapters.add(new Chapter(chapterNames[i], texts[i]));
+        }
         Item item = new Item(itemName, yearOfPublication, new Author(firstName, secondName), chapters);
         try {
             controller.addItem(item);
