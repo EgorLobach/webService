@@ -37,10 +37,10 @@ public class Controller {
         items = new ArrayList<Item>();
     }
 
-    public void addItem(Item Item) throws JAXBException {
+    public void addItem(Item item) throws JAXBException {
         items = unmarshal();
-        if (items.indexOf(Item)==-1)
-            items.add(Item);
+        if (items.indexOf(item)==-1)
+            items.add(item);
         marshal(items);
     }
 

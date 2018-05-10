@@ -1,6 +1,7 @@
 package app.servlet;
 
 import app.controller.Controller;
+import app.controller.DataBaseController;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +14,8 @@ public class DeleteItemServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Controller controller = Controller.getInstance();
-        try {
-            controller.deleteItem(req.getParameter("itemName"));
-            resp.sendRedirect(req.getContextPath() + "/getItems");
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
+        DataBaseController controller = DataBaseController.getInstance();
+        controller.deleteItem(req.getParameter("itemName"));
+        resp.sendRedirect(req.getContextPath() + "/getItems");
     }
 }

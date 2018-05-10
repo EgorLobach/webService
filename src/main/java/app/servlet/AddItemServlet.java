@@ -1,6 +1,7 @@
 package app.servlet;
 
 import app.controller.Controller;
+import app.controller.DataBaseController;
 import app.model.Author;
 import app.model.Chapter;
 import app.model.Item;
@@ -22,7 +23,7 @@ public class AddItemServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Controller controller = Controller.getInstance();
+        DataBaseController controller = DataBaseController.getInstance();
         String itemName = req.getParameter("itemName");
         long yearOfPublication = Long.parseLong(req.getParameter("yearOfPublication"));
         String firstName = req.getParameter("firstName");
@@ -34,12 +35,8 @@ public class AddItemServlet extends HttpServlet {
             chapters.add(new Chapter(chapterNames[i], texts[i]));
         }
         Item item = new Item(itemName, yearOfPublication, new Author(firstName, secondName), chapters);
-        try {
-            controller.addItem(item);
-            resp.sendRedirect(req.getContextPath() + "/getItems");
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
+        controller.addItem(item);
+        resp.sendRedirect(req.getContextPath() + "/getItems");
     }
 }
 

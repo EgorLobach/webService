@@ -1,6 +1,7 @@
 package app.servlet;
 
 import app.controller.Controller;
+import app.controller.DataBaseController;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,12 +13,8 @@ import java.io.IOException;
 public class GetItemsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Controller controller = Controller.getInstance();
-        try {
-            req.setAttribute("items", controller.getItems());
-            req.getRequestDispatcher("view/getItems.jsp").forward(req, resp);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
+        DataBaseController controller = DataBaseController.getInstance();
+        req.setAttribute("items", controller.getItems());
+        req.getRequestDispatcher("view/getItems.jsp").forward(req, resp);
     }
 }

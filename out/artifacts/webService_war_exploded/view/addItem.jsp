@@ -10,6 +10,26 @@
 <html>
 <head>
     <title>Add Item</title>
+    <script language="javascript">
+        var chaptersNumber=1;
+        var number = -1;
+        function DeleteChapter(id) {
+            var el=document.getElementById(id);
+            el.parentNode.removeChild(el);
+        }
+        function AddChapter() {
+            div=document.getElementById("chaptersItem");
+            button=document.getElementById("add");
+            chaptersNumber++;
+            newitem="<div id = \""+number+"\"> <input type = \"text\" name=\"chapterName\" size=\"20\" value=\"new chapter\"/>";
+            newitem+="<input type=\"button\" value=\"Delete Chapter\" onClick=\"DeleteChapter("+number+");\" ID=\"delete\"><br/>";
+            newitem+="<textarea name=\"text\" rows=\"35\" cols=\"50\"></textarea><br/></div>";
+            newnode=document.createElement("span");
+            newnode.innerHTML=newitem;
+            div.insertBefore(newnode,button);
+            number--;
+        }
+    </script>
 </head>
 <body>
 <form method="post" action="/addItem">
@@ -17,9 +37,16 @@
     Year of publication: <input type = "text" name="yearOfPublication" size="50"/><br/>
     Author: <input type = "text" name="firstName" size="20"/>
     <input type = "text" name="secondName" size="20"/><br/>
-    First Chapter: <input type = "text" name="chapterName" size="50"/><br/>
-    <textarea name="text" rows="35" cols="50"></textarea><br/>
-    <input type="submit" name="add" value="Add Item"/>
+    Chapters:<br/>
+    <div ID="0">
+        <input type = "text" name="chapterName" size="20" value="new chapter"/>
+        <input type="button" value="Delete Chapter" onClick="DeleteChapter(0);" ID="delete"><br/>
+        <textarea name="text" rows="35" cols="50"></textarea><br/>
+    </div>
+    <div ID="chaptersItem">
+        <input type="button" value="Add Chapter" onClick="AddChapter();" ID="add">
+    </div>
+    </br><input type="submit" name="add" value="Add Item"/>
 </form>
 </body>
 </html>

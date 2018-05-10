@@ -39,5 +39,15 @@
         <servlet-name>UpdateItem</servlet-name>
         <url-pattern>/updateItem</url-pattern>
     </servlet-mapping>
+    
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>app.servlet.filter.EncodingFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>
