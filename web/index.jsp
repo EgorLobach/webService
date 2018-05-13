@@ -14,5 +14,6 @@
   <body>
   <button onclick="location.href='/getItems'">Get Items</button>
   <button onclick="location.href='/addItem'">Add Item</button>
+  <button onclick="location.href='/singIn'">Sing in</button>
   </body>
 </html>
