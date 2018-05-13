@@ -39,6 +39,42 @@
         <servlet-name>UpdateItem</servlet-name>
         <url-pattern>/updateItem</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SingIn</servlet-name>
+        <servlet-class>app.servlet.SingInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SingIn</servlet-name>
+        <url-pattern>/singIn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VK</servlet-name>
+        <servlet-class>app.servlet.OauthVKServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VK</servlet-name>
+        <url-pattern>/vk</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Yandex</servlet-name>
+        <servlet-class>app.servlet.OauthYandexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Yandex</servlet-name>
+        <url-pattern>/yandex</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>app.servlet.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
     
     <filter>
         <filter-name>encodingFilter</filter-name>

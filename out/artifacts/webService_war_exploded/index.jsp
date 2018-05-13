@@ -5,15 +5,26 @@
   Time: 15:43
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Home page</title>
+  <title>Sing In</title>
 </head>
-  <body>
-  <button onclick="location.href='/getItems'">Get Items</button>
-  <button onclick="location.href='/addItem'">Add Item</button>
-  <button onclick="location.href='/singIn'">Sing in</button>
-  </body>
+<body>
+<form action="https://oauth.vk.com/authorize" method="get">
+  <input type="hidden" name="client_id" value="6477509">
+  <input type="hidden" name="redirect_uri" value="http://localhost:8888/vk">
+  <input type="hidden" name="display" value="page">
+  <input type="hidden" name="response_type" value="code">
+  <input type="hidden" name="v" value="5.74">
+  <input type="hidden" name="scope" value="friends">
+  <input type="submit" value="VK">
+</form>
+<form action="https://oauth.yandex.ru/authorize" method="get">
+  <input type="hidden" name="client_id" value="0f93b88929f44b5192e981adde363711">
+  <input type="hidden" name="display" value="page">
+  <input type="hidden" name="response_type" value="code">
+  <input type="submit" value="Yandex">
+</form>
+</body>
 </html>
